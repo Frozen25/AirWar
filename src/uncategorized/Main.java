@@ -16,7 +16,7 @@ import static org.lwjgl.opengl.GL11.*;
  */
 
 /**
- *
+ *hola
  * @author Alexis
  */
 public class Main

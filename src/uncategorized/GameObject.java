@@ -11,10 +11,10 @@ package uncategorized;
  */
 public abstract class GameObject {
     
-    private float x;
-    private float y;
-    private float sx;
-    private float sy;
+    protected float x;
+    protected float y;
+    protected float sx;
+    protected float sy;
     abstract void update();
     public void render()
     {

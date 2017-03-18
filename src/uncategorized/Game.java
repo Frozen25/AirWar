@@ -1,6 +1,7 @@
 package uncategorized;
 
 import java.util.ArrayList;
+import org.lwjgl.opengl.Display;
 
 
 /**
@@ -14,6 +15,10 @@ public class Game {
     public Game()
     {
         objects = new ArrayList<GameObject>();
+        
+        GOBall ball = new GOBall(Display.getWidth()/2 - GOBall.SIZE/2 , Display.getHeight()/2 - GOBall.SIZE/2);
+        
+        objects.add(ball);
     }
     
     public void getInput()

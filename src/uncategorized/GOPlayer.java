@@ -31,7 +31,7 @@ public class GOPlayer extends GameObject
     public void update()
     {
         if (Physics.checkCollisions(this, ball))
-            ball.reverseX();
+            ball.reverseX(getCenterY());
     }
     
     public void move(float mag)

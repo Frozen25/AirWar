@@ -14,6 +14,8 @@ public class GOBall extends GameObject
     public static final int SIZE = 16;
     public static final float MAX_SPEEDX = 4f;
     public static final float MAX_SPEEDY = 8f;
+    public static final float DANPING = 0.05f;
+    
     public float velX;
     public float velY;
     
@@ -37,8 +39,16 @@ public class GOBall extends GameObject
         y += velY;
         
     }
-    public void reverseX()
+    public void reverseX(float center)
     {
         velX *= -1;
+        velY += (getCenterY()-center)* DANPING;
+        
+        if (velY > MAX_SPEEDY)
+            velY = MAX_SPEEDY;
+        if (velY < -MAX_SPEEDY)
+            velY = -MAX_SPEEDY;
+        
+            
     }
 }

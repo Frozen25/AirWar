@@ -12,13 +12,15 @@ import org.lwjgl.opengl.Display;
 public class Game {
     
     private ArrayList<GameObject> objects;
+    
     private GOPlayer player;
+    
     public Game()
     {
         objects = new ArrayList<GameObject>();
         
         GOBall ball = new GOBall(Display.getWidth()/2 - GOBall.SIZE/2 , Display.getHeight()/2 - GOBall.SIZE/2);
-        player = new GOPlayer(0,Display.getHeight()/2 - GOPlayer.SIZEY/2);
+        player = new GOPlayer(0, Display.getHeight()/2 - GOPlayer.SIZEY /2, ball);
         
         objects.add(ball);
         objects.add(player);

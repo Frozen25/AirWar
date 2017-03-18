@@ -4,6 +4,7 @@ package uncategorized;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.lwjgl.LWJGLException;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import static org.lwjgl.opengl.GL11.*;
@@ -92,6 +93,7 @@ public class Main
     private static void cleanUp()
     {
         Display.destroy();
+        Keyboard.destroy();
     }
     
     private static void initDisplay()
@@ -100,6 +102,7 @@ public class Main
             Display.setDisplayMode(new DisplayMode(800,600));
             Display.create();
             Display.setVSyncEnabled(true);
+            Keyboard.create();
         } catch (LWJGLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

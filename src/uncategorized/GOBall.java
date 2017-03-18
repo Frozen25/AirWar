@@ -12,6 +12,10 @@ package uncategorized;
 public class GOBall extends GameObject
 {
     public static final int SIZE = 16;
+    public static final float MAX_SPEEDX = 4f;
+    public static final float MAX_SPEEDY = 8f;
+    public final float velX;
+    public final float velY;
     
     public GOBall(float x, float y)
     {
@@ -20,6 +24,8 @@ public class GOBall extends GameObject
         this.sx = SIZE;
         this.sy = SIZE;
         
+        velX = -MAX_SPEEDX;
+        velY = 0;
     }
     
     
@@ -27,5 +33,8 @@ public class GOBall extends GameObject
     @Override
     public void update()
     {
+        x += velX;
+        y += velY;
+        
     }
 }

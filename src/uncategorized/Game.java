@@ -1,5 +1,7 @@
 package uncategorized;
 
+import java.util.ArrayList;
+
 
 /**
  *
@@ -11,7 +13,7 @@ public class Game {
     
     public Game()
     {
-        objects = new ArrayList<GameObject>;
+        objects = new ArrayList<GameObject>();
     }
     
     public void getInput()

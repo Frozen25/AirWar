@@ -13,7 +13,7 @@ import static org.lwjgl.opengl.GL11.*;
 public class Draw {
     
     
-    private static void rect(float x, float y, float width, float height)
+    static void rect(float x, float y, float width, float height)
     {
         glPushMatrix();
         {

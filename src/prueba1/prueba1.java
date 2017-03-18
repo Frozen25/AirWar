@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package prueba1;
-//prueba hola
+//hola
 /**
  *
  * @author Alexis

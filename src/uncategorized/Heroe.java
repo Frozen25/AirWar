@@ -28,9 +28,13 @@ public class Heroe extends Comun {
         //    ball.reverseX(getCenterY());
     }
     
-    public void move(float mag)
+    public void moveY(float mag)
     {
         y += SPEED * mag;
+    }
+    public void moveX(float mag)
+    {
+        x += SPEED * mag;
     }
     
 }

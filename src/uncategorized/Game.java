@@ -30,9 +30,14 @@ public class Game {
     public void getInput()
     {
         if (Keyboard.isKeyDown(Keyboard.KEY_W) || (Keyboard.isKeyDown(Keyboard.KEY_UP)))
-            jugador.move(1);
+            jugador.moveY(1);
         if (Keyboard.isKeyDown(Keyboard.KEY_S) || (Keyboard.isKeyDown(Keyboard.KEY_DOWN)))
-            jugador.move(-1);
+            jugador.moveY(-1);
+        if (Keyboard.isKeyDown(Keyboard.KEY_A) || (Keyboard.isKeyDown(Keyboard.KEY_LEFT)))
+            jugador.moveX(-1);
+        if (Keyboard.isKeyDown(Keyboard.KEY_D) || (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)))
+            jugador.moveX(1);
+        
     }
     public void update()
     {

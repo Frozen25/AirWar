@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Pong;
+package uncategorized;
 
-/**
- *
- * @author Alexis
- */
-public class GOPlayer extends GameObject
-{
+import uncategorized.Comun;
+
+public class Heroe extends Comun {
+
+    public Heroe(String nombre, int vida, int municion) {
+            super(nombre, vida, municion);
+    }
+    
     public static final int SIZEX = 16;
     public static final int SIZEY = SIZEX * 7;
     public static final float SPEED = 4f;
@@ -39,4 +36,11 @@ public class GOPlayer extends GameObject
         y += SPEED * mag;
     }
     
+}
+
+        
+        
+        
+        
+
 }

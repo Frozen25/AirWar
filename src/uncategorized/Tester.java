@@ -1,4 +1,6 @@
-package com.src.estructuras;
+package uncategorized;
+
+import uncategorized.Enemigo;
 
 public class Tester {
 

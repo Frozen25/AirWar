@@ -1,4 +1,6 @@
-package com.src.estructuras;
+package uncategorized;
+
+import uncategorized.Comun;
 
 public class Enemigo extends Comun {
 	
@@ -21,5 +23,13 @@ public class Enemigo extends Comun {
 			this.setNombre("jefe");
 		}
 	}
+        
+    @Override
+    public void update()
+    {
+
+    }
+            
+
 
 }

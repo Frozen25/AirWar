@@ -1,6 +1,7 @@
-package com.src.estructuras;
+package uncategorized;
 
-public class Comun {
+public abstract class Comun extends GameObject
+{
 	private int vida;
 	private int municion;
 	private String nombre;

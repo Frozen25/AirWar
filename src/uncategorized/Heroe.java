@@ -1,5 +1,6 @@
 package uncategorized;
 
+import org.lwjgl.opengl.Display;
 import uncategorized.Comun;
 
 public class Heroe extends Comun {
@@ -18,7 +19,7 @@ public class Heroe extends Comun {
     }
     
 
-
+    
     
     
     @Override
@@ -34,7 +35,22 @@ public class Heroe extends Comun {
     }
     public void moveX(float mag)
     {
-        x += SPEED * mag;
+        if (mag > 0)
+        {
+            if (x+sx < Display.getWidth())
+            {
+                x += SPEED * mag;
+            }  
+        }
+        if (mag < 0)
+        {
+            if (x>0)
+            {
+                x += SPEED * mag;
+            }
+                
+        }
+                
     }
     
 }

@@ -12,25 +12,32 @@ import org.lwjgl.opengl.Display;
 public class Game {
     
     private ArrayList<GameObject> objects;
-    private GOPlayer player;
+    
+    private Heroe jugador;
+    
     public Game()
     {
         objects = new ArrayList<GameObject>();
         
         GOBall ball = new GOBall(Display.getWidth()/2 - GOBall.SIZE/2 , Display.getHeight()/2 - GOBall.SIZE/2);
-        player = new GOPlayer(0,Display.getHeight()/2 - GOPlayer.SIZEY/2);
+        jugador = new Heroe( "nombre ", 3, 100 , Display.getWidth()/2 - Heroe.SIZEX /2,0);
         
         objects.add(ball);
-        objects.add(player);
+        objects.add(jugador);
         
     }
     
     public void getInput()
     {
         if (Keyboard.isKeyDown(Keyboard.KEY_W) || (Keyboard.isKeyDown(Keyboard.KEY_UP)))
-            player.move(1);
+            jugador.moveY(1);
         if (Keyboard.isKeyDown(Keyboard.KEY_S) || (Keyboard.isKeyDown(Keyboard.KEY_DOWN)))
-            player.move(-1);
+            jugador.moveY(-1);
+        if (Keyboard.isKeyDown(Keyboard.KEY_A) || (Keyboard.isKeyDown(Keyboard.KEY_LEFT)))
+            jugador.moveX(-1);
+        if (Keyboard.isKeyDown(Keyboard.KEY_D) || (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)))
+            jugador.moveX(1);
+        
     }
     public void update()
     {

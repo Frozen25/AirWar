@@ -8,6 +8,7 @@ public class Enemigo extends Comun {
         public static final int SIZEY = 16;
         public static final int SIZEX = SIZEY *2 ;
         public static final float SPEED = 2f;
+        
 
 	public Enemigo(String nombre, int vida, int municion,int tipo, float x, float y) {
                 super(nombre, vida, municion);
@@ -30,12 +31,13 @@ public class Enemigo extends Comun {
             this.y = y;
             this.sx = SIZEX;
             this.sy = SIZEY; 
-        
+            
         }
         
     @Override
     public void update()
     {
+        
         y -= SPEED;
         
     }

@@ -11,7 +11,18 @@ package uncategorized;
  */
 public class Disparo extends GameObject
 {
-    //hola
+    public static final int SIZEX = 5;
+    public static final int SIZEY = 20;
+    public static final float SPEED = 4f;
+    
+    public Disparo (float x , float Y)
+    {
+        this.x = x;
+        this.y = y;
+        this.sx = SIZEX;
+        this.sy = SIZEY;
+    }
+    
     
     
     
@@ -20,6 +31,8 @@ public class Disparo extends GameObject
 @Override
     public void update()
     {
+        y += SPEED;
+    }
 
-    }    
+    
 }

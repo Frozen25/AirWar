@@ -14,15 +14,17 @@ public class Game {
     //private ArrayList<GameObject> objects;
     
     private Heroe jugador;
-    private GOBall ball;
+    
     private Enemigo enemigo1;
+    private Disparo disparo;
     
     public Game()
     {
         //objects = new ArrayList<GameObject>();
         
-        ball = new GOBall(Display.getWidth()/2 - GOBall.SIZE/2 , Display.getHeight()/2 - GOBall.SIZE/2);
+        
         jugador = new Heroe( "nombre ", 3, 100 , Display.getWidth()/2 - Heroe.SIZEX /2,0);
+        
         enemigo1 = new Enemigo("", 1, 10, 1, Display.getWidth()/2 - Enemigo.SIZEX/2 , Display.getHeight() - Enemigo.SIZEY); 
         
         //objects.add(ball);
@@ -42,21 +44,30 @@ public class Game {
             jugador.moveX(-1);
         if (Keyboard.isKeyDown(Keyboard.KEY_D) || (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)))
             jugador.moveX(1);
+        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE))
+            disparo = new Disparo(jugador.getX()+jugador.getSX()/2,jugador.getY()+jugador.getSY());
         
     }
     public void update()
     {
-        ball.update();
+        
         jugador.update();
         enemigo1.update();
-        //for (GameObject go : objects)
-        //    go.update();
+        if( disparo != null)
+        {
+            disparo.update();
+            if (Physics.checkCollisions(enemigo1, disparo))
+                
+                System.out.println("colision");
+        }
     }
     public void render()
     {
-        ball.render();
+        
         jugador.render();
         enemigo1.render();
+        if( disparo != null)
+            disparo.render();
         /*
         for (GameObject go : objects)
             go.render();

@@ -25,7 +25,7 @@ public class Game {
         
         jugador = new Heroe( "nombre ", 3, 100 , Display.getWidth()/2 - Heroe.SIZEX /2,0);
         
-        enemigo1 = new Enemigo("", 1, 10, 1, Display.getWidth()/2 - Enemigo.SIZEX/2 , Display.getHeight() - Enemigo.SIZEY); 
+        enemigo1 = new Enemigo( 1,  Display.getWidth()/2  , Display.getHeight()); 
         
         //objects.add(ball);
         //objects.add(jugador);

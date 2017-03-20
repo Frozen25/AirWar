@@ -3,7 +3,7 @@ package uncategorized;
 import org.lwjgl.opengl.Display;
 import uncategorized.Comun;
 
-public class Heroe extends Comun {
+public class Heroe extends GameObject {
 
     public static final int SIZEY = 16;
     public static final int SIZEX = SIZEY * 5;
@@ -11,7 +11,7 @@ public class Heroe extends Comun {
     
     
     public Heroe(String nombre, int vida, int municion, float x, float y) {
-            super(nombre, vida, municion);
+            
         this.x = x;
         this.y = y;
         this.sx = SIZEX;

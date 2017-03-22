@@ -1,13 +1,13 @@
 package uncategorized;
 
 import org.lwjgl.opengl.Display;
-import uncategorized.Comun;
+
 
 public class Heroe extends GameObject {
 
-    public static final int SIZEY = 16;
-    public static final int SIZEX = SIZEY * 5;
-    public static final float SPEED = 4f;
+    private static final int SIZEY = 16;
+    private static final int SIZEX = SIZEY * 5;
+    private static final float SPEED = 4f;
     
     
     public Heroe(String nombre, int vida, int municion, float x, float y) {
@@ -18,7 +18,6 @@ public class Heroe extends GameObject {
         this.sy = SIZEY;           
     }
     
-
     
     
     
@@ -31,7 +30,12 @@ public class Heroe extends GameObject {
     
     public void moveY(float mag)
     {
-        y += SPEED * mag;
+        if (mag > 0)
+            if (y < ((Display.getHeight() )- this.sy * 1.2))
+                y += SPEED * mag;
+        if (mag <0)
+            if (y>0)
+                y += SPEED * mag;
     }
     public void moveX(float mag)
     {

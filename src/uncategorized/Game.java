@@ -25,7 +25,7 @@ public class Game {
         //objects = new ArrayList<GameObject>();
         
         
-        jugador = new Heroe( "nombre ", 3, 100 , Display.getWidth()/2 - Heroe.SIZEX /2,0);
+        jugador = new Heroe( "nombre ", 3, 100 , Display.getWidth()*1/8  /2,0);
         
         jet1 = new Jet(  Display.getWidth()/2  , Display.getHeight()); 
         kami1 = new Kamikaze (Display.getWidth()/2  , Display.getHeight(), jugador.getCenterX(), jugador.getY()); 
@@ -36,12 +36,12 @@ public class Game {
     
     public void getInput()
     {
-        /*
+        
         if (Keyboard.isKeyDown(Keyboard.KEY_W) || (Keyboard.isKeyDown(Keyboard.KEY_UP)))
             jugador.moveY(1);
         if (Keyboard.isKeyDown(Keyboard.KEY_S) || (Keyboard.isKeyDown(Keyboard.KEY_DOWN)))
             jugador.moveY(-1);
-        */
+        
         if (Keyboard.isKeyDown(Keyboard.KEY_A) || (Keyboard.isKeyDown(Keyboard.KEY_LEFT)))
             jugador.moveX(-1);
         if (Keyboard.isKeyDown(Keyboard.KEY_D) || (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)))
@@ -64,6 +64,7 @@ public class Game {
                 System.out.println("colision");
         }
     }
+    
     public void render()
     {
         

@@ -9,23 +9,25 @@ package uncategorized;
  *
  * @author Alexis
  */
-public class Jet extends GameObject{
+public class Bombardero extends GameObject{
+    
+
     private static final int SIZEY = 16;
     private static final int SIZEX = SIZEY *2 ;
-    private static final float SPEED = 2f;
-    private static final String tipo = "Jet";
+    private static final float SPEED = 1f;
+    private static final String tipo = "Bombardero";
     private static int vida = 100;
-    private static final int dmg = 10;
+    private static final int dmg = 30;
+
     
-    public Jet( float x, float y) {
+    public Bombardero( float x, float y) {
         this.x = x;
         this.y = y;
         this.sx = SIZEX;
         this.sy = SIZEY;
        
         
-
-        
+ 
     }
     
     public String getTipo()
@@ -42,13 +44,11 @@ public class Jet extends GameObject{
     {
         vida += mag;
     }
-
+    
     public int getDmg()
     {
         return dmg;
     }
-
-    
     
     @Override
     public void update()

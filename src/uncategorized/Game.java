@@ -1,6 +1,7 @@
 package uncategorized;
 
-import java.util.ArrayList;
+
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
@@ -15,7 +16,8 @@ public class Game {
     
     private Heroe jugador;
     
-    private Enemigo enemigo1;
+    private Jet jet1;
+    private Kamikaze kami1;
     private Disparo disparo;
     
     public Game()
@@ -25,8 +27,8 @@ public class Game {
         
         jugador = new Heroe( "nombre ", 3, 100 , Display.getWidth()/2 - Heroe.SIZEX /2,0);
         
-        enemigo1 = new Enemigo( 1,  Display.getWidth()/2  , Display.getHeight()); 
-        
+        jet1 = new Jet(  Display.getWidth()/2  , Display.getHeight()); 
+        kami1 = new Kamikaze (Display.getWidth()/2  , Display.getHeight(), jugador.getCenterX(), jugador.getY()); 
         //objects.add(ball);
         //objects.add(jugador);
         
@@ -52,11 +54,12 @@ public class Game {
     {
         
         jugador.update();
-        enemigo1.update();
+        jet1.update();
+        kami1.update();
         if( disparo != null)
         {
             disparo.update();
-            if (Physics.checkCollisions(enemigo1, disparo))
+            if (Physics.checkCollisions(jet1, disparo))
                 
                 System.out.println("colision");
         }
@@ -65,7 +68,8 @@ public class Game {
     {
         
         jugador.render();
-        enemigo1.render();
+        jet1.render();
+        kami1.render();
         if( disparo != null)
             disparo.render();
         /*

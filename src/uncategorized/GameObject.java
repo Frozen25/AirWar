@@ -46,5 +46,9 @@ public abstract class GameObject {
         return y + sy/2;
      
     }
+    public float getCenterX()
+    {
+        return x + sx/2;
+    }
     
 }

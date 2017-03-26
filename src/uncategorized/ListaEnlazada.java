@@ -25,16 +25,16 @@ class ListaEnlazada {
     public int Tamaño(){
         return this.Tamaño;
     }
-    public void insertarDEPrimero(Object data){
+    public void insertarDEPrimero(int data){
         Nodo nuevoNodo = new Nodo(data);
-        nuevoNodo.siguiente = this.Cabeza;
+        nuevoNodo.setSiguiente (this.Cabeza) ;
         this.Cabeza = nuevoNodo;
         this.Tamaño++;
     }
     public Nodo borrarPrimero(){
         if (this.Cabeza != null){
             Nodo temp = this.Cabeza;
-            this.Cabeza = this.Cabeza.siguiente;
+            this.Cabeza = this.Cabeza.getSiguiente();
             this.Tamaño--;
             return temp;
         } else{

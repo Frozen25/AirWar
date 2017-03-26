@@ -10,19 +10,27 @@ package uncategorized;
  * @author Daniel Badilla Lobo
  */
 class Nodo {
-    private Object Enemigo;
-    public Nodo siguiente;
+    private int Data;
+    private Nodo siguiente;
 
-    public Nodo(Object Enemigo){
-        this.siguiente = null;
-        this.Enemigo = Enemigo;
-
-    }
-    public Object getEnemigo(){
-        return this.Enemigo;
+    public Nodo(int Enemigo){
+        siguiente = null;
+        this.Data = Enemigo;
 
     }
-    public void setEnemigo(Object Enemigo){
-        this.Enemigo = Enemigo;
+    public Object getData(){
+        return Data;
+
+    }
+    public void setEnemigo(int Enemigo){
+        Data = Enemigo;
+    }
+    public Nodo getSiguiente()
+    {
+        return siguiente;
+    }
+    public void setSiguiente(Nodo next)
+    {
+        siguiente = next;
     }
 }

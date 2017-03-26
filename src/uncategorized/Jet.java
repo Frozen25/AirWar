@@ -13,8 +13,8 @@ public class Jet extends GameObject{
     private static final int SIZEY = 16;
     private static final int SIZEX = SIZEY *2 ;
     private static final float SPEED = 2f;
-    private static final String tipo = "Jet";
-    private static int vida = 100;
+    private static final String type = "Jet";
+    private static int life = 100;
     private static final int dmg = 10;
     
     public Jet( float x, float y) {
@@ -28,19 +28,19 @@ public class Jet extends GameObject{
         
     }
     
-    public String getTipo()
+    public String getType()
     {
-        return tipo;
+        return type;
     }
 
-    public int getVida()
+    public int getLife()
     {
-        return vida;
+        return life;
     }
 
-    public void addVida(int mag)
+    public void addLife(int mag)
     {
-        vida += mag;
+        life += mag;
     }
 
     public int getDmg()

@@ -14,23 +14,30 @@ public class Game {
     
     //private ArrayList<GameObject> objects;
     
-    private Heroe jugador;
-    
+    private Heroe player;
+    //private ColaEnemigos Cola;
     private Jet jet1;
     private Kamikaze kami1;
-    private Disparo disparo;
+    private Shoot disparo;
+    
     
     public Game()
     {
         //objects = new ArrayList<GameObject>();
         
         
-        jugador = new Heroe( "nombre ", 3, 100 , Display.getWidth()*1/8  /2,0);
+        player = new Heroe( "nombre", 3, 100 , Display.getWidth()*1/8  /2,0);
         
         jet1 = new Jet(  Display.getWidth()/2  , Display.getHeight()); 
-        kami1 = new Kamikaze (Display.getWidth()/2  , Display.getHeight(), jugador.getCenterX(), jugador.getY()); 
-        //objects.add(ball);
-        //objects.add(jugador);
+        kami1 = new Kamikaze (Display.getWidth()/2  , Display.getHeight(), player.getCenterX(), player.getY()); 
+        
+        ColaEnemigos Cola = new ColaEnemigos();
+        Cola.insert(1);
+        
+
+
+
+ 
         
     }
     
@@ -38,22 +45,22 @@ public class Game {
     {
         
         if (Keyboard.isKeyDown(Keyboard.KEY_W) || (Keyboard.isKeyDown(Keyboard.KEY_UP)))
-            jugador.moveY(1);
+            player.moveY(1);
         if (Keyboard.isKeyDown(Keyboard.KEY_S) || (Keyboard.isKeyDown(Keyboard.KEY_DOWN)))
-            jugador.moveY(-1);
+            player.moveY(-1);
         
         if (Keyboard.isKeyDown(Keyboard.KEY_A) || (Keyboard.isKeyDown(Keyboard.KEY_LEFT)))
-            jugador.moveX(-1);
+            player.moveX(-1);
         if (Keyboard.isKeyDown(Keyboard.KEY_D) || (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)))
-            jugador.moveX(1);
+            player.moveX(1);
         if (Keyboard.isKeyDown(Keyboard.KEY_SPACE))
-            disparo = new Disparo(jugador.getX()+jugador.getSX()/2,jugador.getY()+jugador.getSY());
+            disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY());
         
     }
     public void update()
     {
         
-        jugador.update();
+        player.update();
         jet1.update();
         kami1.update();
         if( disparo != null)
@@ -68,7 +75,7 @@ public class Game {
     public void render()
     {
         
-        jugador.render();
+        player.render();
         jet1.render();
         kami1.render();
         if( disparo != null)

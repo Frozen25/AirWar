@@ -9,13 +9,13 @@ package uncategorized;
  *
  * @author Alexis
  */
-public class Disparo extends GameObject
+public class Shoot extends GameObject
 {
     public static final int SIZEX = 5;
     public static final int SIZEY = 20;
     public static final float SPEED = 4f;
     
-    public Disparo (float x , float Y)
+    public Shoot (float x , float Y)
     {
         this.x = x;
         this.y = y;

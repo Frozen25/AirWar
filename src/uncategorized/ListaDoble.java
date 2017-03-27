@@ -11,7 +11,7 @@ package uncategorized;
  */
 public class ListaDoble {
     
-    private NodoDoble tail;
+    //private NodoDoble tail;
     private NodoDoble head;
     private int size;
     
@@ -29,23 +29,43 @@ public class ListaDoble {
     public int getSize(){
         return size;
     }
-    public void insertFirst(int data){
-        NodoDoble newNode = new NodoDoble(data);
-        newNode.setNext (head);
-        head.getNext().setPrev(newNode);
-        head = newNode;
-        size++;
+    public void insertFirst(GameObject data){
+        if (size != 0)
+        {
+            NodoDoble newNode = new NodoDoble(data);
+            newNode.setNext (head);
+            head.getNext().setPrev(newNode);
+            head = newNode;
+            size++;
+        }
+        else
+        {
+            NodoDoble newNode = new NodoDoble(data);
+            head = newNode;
+            size++;
+        }
     }
     
-    public NodoDoble EraseFirst(){
-        if (head != null){
+    public NodoDoble TakeFirst(){
+        if (size > 1){
             NodoDoble temp = head;
             head.getNext().setPrev(null);
             head = head.getNext();
             size--;
             return temp;
-        } else{
+        }
+        if (size == 1)
+        {
+            NodoDoble temp = head;
+            head = null;
+            size--;
+            return temp;
+        }
+        else{
             return null;
         }
+        
     }
+    
+    
 }

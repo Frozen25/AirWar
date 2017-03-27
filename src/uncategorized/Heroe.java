@@ -10,12 +10,13 @@ public class Heroe extends GameObject {
     private static final float SPEED = 4f;
     
     
-    public Heroe(String nombre, int life, int ammo, float x, float y) {
+    public Heroe(String nombre,  int ammo, float x, float y) {
             
         this.x = x;
         this.y = y;
         this.sx = SIZEX;
-        this.sy = SIZEY;           
+        this.sy = SIZEY;
+        this.life = 100;
     }
     
     

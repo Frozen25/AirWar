@@ -18,7 +18,7 @@ class Nodo {
         this.Data = Enemigo;
 
     }
-    public Object getData(){
+    public int getData(){
         return Data;
 
     }

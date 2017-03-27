@@ -12,21 +12,21 @@ package uncategorized;
 public class NodoDoble {
     
 
-    private int Data;
+    private GameObject Data;
     private NodoDoble next;
     private NodoDoble prev;
 
-    public NodoDoble(int Enemigo){
+    public NodoDoble(GameObject Enemigo){
         prev = null;
         next = null;
         this.Data = Enemigo;
 
     }
-    public Object getData(){
+    public GameObject getData(){
         return Data;
 
     }
-    public void setData(int Enemigo){
+    public void setData(GameObject Enemigo){
         Data = Enemigo;
     }
     public NodoDoble getNext()

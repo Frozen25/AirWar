@@ -26,7 +26,7 @@ public class Game {
         //objects = new ArrayList<GameObject>();
         
         
-        player = new Heroe( "nombre", 3, 100 , Display.getWidth()*1/8  /2,0);
+        player = new Heroe( "nombre", 3, Display.getWidth()*1/8  /2,0);
         
         jet1 = new Jet(  Display.getWidth()/2  , Display.getHeight()); 
         kami1 = new Kamikaze (Display.getWidth()/2  , Display.getHeight(), player.getCenterX(), player.getY()); 

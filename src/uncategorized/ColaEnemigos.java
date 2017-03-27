@@ -26,7 +26,7 @@ public class ColaEnemigos {
         return size;
     }
     
-    public void insert(int data){
+    public void insert(Object data){
         if (size != 0)
         {
             Nodo nuevoNodo = new Nodo(data);

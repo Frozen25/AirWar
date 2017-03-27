@@ -33,6 +33,10 @@ public class Game {
         
         ColaEnemigos Cola = new ColaEnemigos();
         Cola.insert(1);
+        ListaDoble Lista = new ListaDoble();
+        Lista.insertFirst(jet1);
+        System.out.println(Lista.TakeFirst().getData().getClass().toString());
+        
         
 
 

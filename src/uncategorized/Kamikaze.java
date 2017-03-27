@@ -13,11 +13,7 @@ public class Kamikaze extends GameObject {
 
     private static final int SIZEY = 16;
     private static final int SIZEX = SIZEY *2 ;
-    private static final float SPEED = 2f;
-    private static final String type = "Kamikaze";
-    private static int life = 100;
-    
-    
+    private static final float SPEED = 1/200f;    
     private float calcx;
     private float calcy;
     
@@ -27,25 +23,11 @@ public class Kamikaze extends GameObject {
         this.y = y;
         this.sx = SIZEX;
         this.sy = SIZEY;
-        this.calcx = (playerX - this.getCenterX())/400;
-        this.calcy = (playerY - this.getCenterY())/400;
+        this.life = 100;
+        this.calcx = (playerX - this.getCenterX());
+        this.calcy = (playerY - this.getCenterY());
 
         
-    }
-    
-    public String getTipo()
-    {
-        return type;
-    }
-
-    public int getVida()
-    {
-        return life;
-    }
-
-    public void addVida(int mag)
-    {
-        life += mag;
     }
     
     @Override

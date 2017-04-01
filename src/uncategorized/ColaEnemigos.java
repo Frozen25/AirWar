@@ -26,7 +26,7 @@ public class ColaEnemigos {
         return size;
     }
     
-    public void insert(Object data){
+    public void encolar(int data){
         if (size != 0)
         {
             Nodo nuevoNodo = new Nodo(data);
@@ -43,13 +43,21 @@ public class ColaEnemigos {
         }
     }
     
-    public Nodo take()
+    public Nodo desencolar()
     {
         if (size ==0)
         {
-            return First;
+            return null;
         }
-        if (size !=1)
+
+        else if (size ==1)
+        {
+            Nodo temp = First;
+            First = null;
+            size = 0;
+            return temp;
+        }
+        else 
         {
             Nodo temp = First;
             First = First.getSiguiente();
@@ -57,22 +65,11 @@ public class ColaEnemigos {
             return temp;
             
         }
-        else
-        {
-            Nodo temp = First;
-            First = null;
-            size = 0;
-            return temp;
-        }
     }
     
-    public Nodo getFirst()
+    public Nodo ver()
     {
         return First;
     }
-    public Nodo getLast()
-    {
-        return Last;
-    }
-    
+
 }

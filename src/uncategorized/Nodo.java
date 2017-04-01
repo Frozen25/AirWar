@@ -10,10 +10,10 @@ package uncategorized;
  * @author Daniel Badilla Lobo
  */
 class Nodo {
-    private Object Data;
+    private int Data;
     private Nodo siguiente;
 
-    public Nodo(Object Enemigo){
+    public Nodo(int Enemigo){
         siguiente = null;
         this.Data = Enemigo;
 
@@ -22,7 +22,7 @@ class Nodo {
         return Data;
 
     }
-    public void setEnemigo(Object Enemigo){
+    public void setEnemigo(int Enemigo){
         Data = Enemigo;
     }
     public Nodo getSiguiente()

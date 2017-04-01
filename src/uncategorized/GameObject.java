@@ -5,6 +5,9 @@
  */
 package uncategorized;
 
+import org.newdawn.slick.opengl.Texture;
+import static uncategorized.Main.loadTexture;
+
 /**
  *
  * @author Alexis
@@ -19,6 +22,7 @@ public abstract class GameObject {
     abstract void update();
     public void render()
     {
+
         Draw.rect(x,y,sx,sy);
     }
     

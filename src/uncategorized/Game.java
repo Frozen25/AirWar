@@ -2,8 +2,11 @@ package uncategorized;
 
 
 
+import java.util.Random;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
+import org.newdawn.slick.opengl.Texture;
+import static uncategorized.Main.loadTexture;
 
 
 /**
@@ -32,10 +35,24 @@ public class Game {
         kami1 = new Kamikaze (Display.getWidth()/2  , Display.getHeight(), player.getCenterX(), player.getY()); 
         
         ColaEnemigos Cola = new ColaEnemigos();
-        Cola.insert(1);
+        int numero_enemigos = 5;
+        Random random = new Random();
+        for (int i = 1; i <= numero_enemigos; i++) {
+            int value =  random.nextInt(5);
+            Cola.encolar(value);
+        }
+        
+        while ( !Cola.isEmpty()  )
+        {
+            System.out.println(Cola.desencolar().getData());
+        }
+        //Cola.encolar(1);
+        //Cola.encolar(2);
+        //System.out.println(Cola.desencolar().getData());
+        //System.out.println(Cola.desencolar().getData());
         ListaDoble Lista = new ListaDoble();
         Lista.insertFirst(jet1);
-        System.out.println(Lista.TakeFirst().getData().getClass().toString());
+        //System.out.println(Lista.TakeFirst().getData().getClass().toString());
         
         
 
@@ -78,8 +95,10 @@ public class Game {
     
     public void render()
     {
-        
+
+                
         player.render();
+        
         jet1.render();
         kami1.render();
         if( disparo != null)

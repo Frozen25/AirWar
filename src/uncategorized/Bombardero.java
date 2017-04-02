@@ -14,7 +14,7 @@ public class Bombardero extends GameObject{
 
     private static final int SIZEY = 16;
     private static final int SIZEX = SIZEY *2 ;
-    private static final float SPEED = 1f;
+    private static final float SPEED = 0.5f;
     private static final int dmg = 30;
 
     

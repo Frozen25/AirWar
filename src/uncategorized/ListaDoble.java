@@ -26,6 +26,11 @@ public class ListaDoble {
         return head == null;
     }
 
+    public NodoDoble getHead()
+    {
+        return head;
+    }
+    
     public int getSize(){
         return size;
     }
@@ -34,8 +39,9 @@ public class ListaDoble {
         {
             NodoDoble newNode = new NodoDoble(data);
             newNode.setNext (head);
-            head.getNext().setPrev(newNode);
             head = newNode;
+            head.getNext().setPrev(newNode);
+            
             size++;
         }
         else
@@ -67,5 +73,28 @@ public class ListaDoble {
         
     }
     
-    
+    public void Renderall()
+    {
+        NodoDoble Current = head;
+        while (Current != null)
+        {
+            Current.getData().render();
+            Current = Current.getNext();
+        }
+        
+    }
+    public void Updateall()
+    {
+        NodoDoble Current = head;
+        while (Current!= null)
+        {
+            Current.getData().update();
+            Current = Current.getNext();
+        }
+        
+    }
+    public NodoDoble peek()
+    {
+        return head;
+    }
 }

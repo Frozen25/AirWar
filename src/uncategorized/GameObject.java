@@ -19,6 +19,7 @@ public abstract class GameObject {
     protected float sx;
     protected float sy;
     protected int life;
+    protected int dmg;
     abstract void update();
     public void render()
     {
@@ -64,6 +65,12 @@ public abstract class GameObject {
     {
         life += mag;
     }
+    public int getDmg()
+    {
+        return dmg;
+    }
+
+
     
     
 }

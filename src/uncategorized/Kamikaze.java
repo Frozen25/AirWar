@@ -23,7 +23,8 @@ public class Kamikaze extends GameObject {
         this.y = y;
         this.sx = SIZEX;
         this.sy = SIZEY;
-        this.life = 100;
+        this.life = 5;
+        this.dmg = 0;
         this.calcx = (playerX - this.getCenterX());
         this.calcy = (playerY - this.getCenterY());
 

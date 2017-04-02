@@ -19,9 +19,12 @@ public class Game {
     
     private Heroe player;
     //private ColaEnemigos Cola;
-    private Jet jet1;
-    private Kamikaze kami1;
+
+     
     private Shoot disparo;
+    
+    ListaDoble Lista = new ListaDoble();
+    ColaEnemigos Cola = new ColaEnemigos();
     
     
     public Game()
@@ -31,27 +34,59 @@ public class Game {
         
         player = new Heroe( "nombre", 3, Display.getWidth()*1/8  /2,0);
         
-        jet1 = new Jet(  Display.getWidth()/2  , Display.getHeight()); 
-        kami1 = new Kamikaze (Display.getWidth()/2  , Display.getHeight(), player.getCenterX(), player.getY()); 
         
-        ColaEnemigos Cola = new ColaEnemigos();
-        int numero_enemigos = 5;
+        
+        
+        
+        int numero_enemigos = 0;
+        
         Random random = new Random();
         for (int i = 1; i <= numero_enemigos; i++) {
-            int value =  random.nextInt(5);
+            int value =  random.nextInt(3);
             Cola.encolar(value);
         }
+        Cola.encolar(0);
+        //jet1 = new Jet(  Display.getWidth()/2  , Display.getHeight()); 
+        //Lista.insertFirst(jet1);
+        //System.out.println(Lista.peek().getData().getClass());
+        
         
         while ( !Cola.isEmpty()  )
         {
-            System.out.println(Cola.desencolar().getData());
+            int x = Cola.desencolar().getData();
+            System.out.println(x);
+            
+            
+            if (x==0)
+            {
+                Jet jet1;
+                jet1 = new Jet(  Display.getWidth()/2  , Display.getHeight()); 
+                Lista.insertFirst(jet1);
+                System.out.println("jet1 ins");
+            }
+            if (x==1)
+            {
+                Kamikaze kami1;
+                kami1 = new Kamikaze (Display.getWidth()/2  , Display.getHeight(), player.getCenterX(), player.getY()); 
+                Lista.insertFirst(kami1);
+                System.out.println("kami1 ins");
+            }
+            if (x==2)
+            {
+                Bombardero bomb1;
+                bomb1 = new Bombardero (Display.getWidth()/2  , Display.getHeight()); 
+                Lista.insertFirst(bomb1);
+                System.out.println("bomb1 ins");
+            }
+            
+            
         }
         //Cola.encolar(1);
         //Cola.encolar(2);
         //System.out.println(Cola.desencolar().getData());
         //System.out.println(Cola.desencolar().getData());
-        ListaDoble Lista = new ListaDoble();
-        Lista.insertFirst(jet1);
+        
+        
         //System.out.println(Lista.TakeFirst().getData().getClass().toString());
         
         
@@ -82,15 +117,22 @@ public class Game {
     {
         
         player.update();
-        jet1.update();
-        kami1.update();
+        //jet1.update();
+
+        //Lista.peek().getData().update();
+        Lista.Updateall();
+        
+        /*
         if( disparo != null)
         {
             disparo.update();
             if (Physics.checkCollisions(jet1, disparo))
-                
-                System.out.println("colision");
-        }
+            {
+                jet1.addLife(-1 * player.getDmg());
+                System.out.println("colision"); 
+            }
+        }*/
+        
     }
     
     public void render()
@@ -98,9 +140,11 @@ public class Game {
 
                 
         player.render();
+
+        //Lista.peek().getData().render();
+        //jet1.render();
+        Lista.Renderall();
         
-        jet1.render();
-        kami1.render();
         if( disparo != null)
             disparo.render();
         /*

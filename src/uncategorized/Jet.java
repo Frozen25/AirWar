@@ -13,23 +13,21 @@ public class Jet extends GameObject{
     private static final int SIZEY = 16;
     private static final int SIZEX = SIZEY *2 ;
     private static final float SPEED = 2f;
-    private static final int dmg = 10;
+
     
     public Jet( float x, float y) {
         this.x = x;
         this.y = y;
         this.sx = SIZEX;
         this.sy = SIZEY;
-        this.life = 100;
+        this.life = 5;
+        this.dmg = 1;
         
 
         
     }
 
-    public int getDmg()
-    {
-        return dmg;
-    }
+
 
     
     

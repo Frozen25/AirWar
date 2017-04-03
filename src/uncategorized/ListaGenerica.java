@@ -1,8 +1,9 @@
 package uncategorized;
 
-public class ListaGenerica <T> {
-    private NodoGenerico<T> First = null;
-    private NodoGenerico<T> Last = null;
+public class ListaGenerica  {
+    
+    private NodoGenerico First;
+    private NodoGenerico Last;
     private int size = 0;
     
     public boolean isEmpty(){
@@ -17,18 +18,18 @@ public class ListaGenerica <T> {
      	this.First = null;
      	this.Last = null;}
      
-     public void Add(T data){
+     public void Add(GameObject data){
          if (size != 0)
          {
-        	 NodoGenerico<T> nuevoNodo = new NodoGenerico<T>();
-        	 nuevoNodo.setData(data);
-             Last.SetNext(nuevoNodo);
-             Last = nuevoNodo;
+        	 NodoGenerico n1 = new NodoGenerico();
+        	 n1.setData(data);
+        	 Last.SetNext(n1);
+        	 Last = n1;
              size++;
          }
          else
          {
-        	 NodoGenerico<T> nuevoNodo = new NodoGenerico<T>();
+        	 NodoGenerico nuevoNodo = new NodoGenerico();
         	 nuevoNodo.setData(data);
              First = nuevoNodo;
              Last = nuevoNodo;
@@ -42,19 +43,28 @@ public class ListaGenerica <T> {
          
      }
      public void print(){
-    	 NodoGenerico<T> temp = First;
-    	 while(temp.getNext()!= null){
+    	 NodoGenerico temp = First;
+    	 while(temp!= null){
     		 System.out.println(temp.getDato()+",");
     		 temp=temp.getNext();
-    	 }System.out.println(temp.getDato()+",");
+    	 }
+    	
+    
+     }
+     public void updatelis(){
+    	 NodoGenerico temp = First;
+    	 while(temp!= null){
+    		 temp.getDato().update();
+    		 temp=temp.getNext();
+    	 }
+     }
+     public void renderList(){
+    	 NodoGenerico temp = First;
+    	 while(temp!= null){
+    		 temp.getDato().render();
+    		 temp=temp.getNext();
+    	 }
      }
      
-     public static void main(String[] args){
-    	 ListaGenerica<String> l1 =new ListaGenerica<String>();
-    	 l1.Add("bums");
-    	 l1.Add("datlof");
-    	 l1.Add("sgfklg");
-    	 l1.print();
-     }
 
 }

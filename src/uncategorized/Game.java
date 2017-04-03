@@ -25,7 +25,7 @@ public class Game {
     
     ListaDoble Lista = new ListaDoble();
     ColaEnemigos Cola = new ColaEnemigos();
-    
+    ListaGenerica proyectiles =new ListaGenerica();
     
     public Game()
     {
@@ -109,28 +109,33 @@ public class Game {
             player.moveX(-1);
         if (Keyboard.isKeyDown(Keyboard.KEY_D) || (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)))
             player.moveX(1);
-        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE))
-            disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY());
+        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
+        	
+        
+        	disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY());
+        	proyectiles.Add(disparo);}
+        
         
     }
     public void update()
     {
         
         player.update();
-        //jet1.update();
-
-        //Lista.peek().getData().update();
+        
         Lista.Updateall();
         
-        /*
         if( disparo != null)
         {
-            disparo.update();
-            if (Physics.checkCollisions(jet1, disparo))
-            {
-                jet1.addLife(-1 * player.getDmg());
-                System.out.println("colision"); 
-            }
+        	proyectiles.updatelis();
+        	disparo.update();
+            
+            
+        }
+        /*if( proyectiles != null)
+        {
+        	proyectiles.update();
+            
+            
         }*/
         
     }
@@ -144,9 +149,12 @@ public class Game {
         //Lista.peek().getData().render();
         //jet1.render();
         Lista.Renderall();
+        if( disparo != null){
+        	proyectiles.renderList();
+            disparo.render();}
         
-        if( disparo != null)
-            disparo.render();
+        /*if( proyectiles != null)
+            proyectiles.renderList();
         /*
         for (GameObject go : objects)
             go.render();

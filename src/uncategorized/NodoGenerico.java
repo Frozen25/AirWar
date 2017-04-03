@@ -1,26 +1,26 @@
 package uncategorized;
 
-public class NodoGenerico<T> {
-	private T tipo;
-	private NodoGenerico<T> next;
+public class NodoGenerico {
+	private GameObject tipo;
+	private NodoGenerico next;
 	 public NodoGenerico(){
 		 this.next=null;
 	 }
-	public T getDato() {
+	public GameObject getDato() {
 			return tipo;
 		}
 		
 		
-		public void setData(T dato) {
+		public void setData(GameObject dato) {
 			this.tipo = dato;
 		}
 		
 		
-		public NodoGenerico<T> getNext() {
+		public NodoGenerico getNext() {
 			return next;
 		}
 		
-		public void SetNext(NodoGenerico<T> siguiente) {
+		public void SetNext(NodoGenerico siguiente) {
 			this.next = siguiente;
 		}
 }

@@ -19,4 +19,37 @@ public class Physics {
         
         return r1.intersects(r2);
     }
+    
+    
+    
+  
+    
+    public static ListaDoble checkwithListaDoble (GameObject go, ListaDoble lista )
+    {
+        NodoDoble current = lista.getHead();
+        while (current != null)
+        {
+            if (checkCollisions( go,  current.getData()))
+            {
+                current.getPrev().setNext(current.getNext());
+                current.getNext().setPrev(current.getPrev());
+                
+            }
+            current = current.getNext();
+        }
+        return lista;
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

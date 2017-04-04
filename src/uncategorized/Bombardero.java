@@ -6,7 +6,7 @@
 package uncategorized;
 
 /**
- *
+ *hhhh
  * @author Alexis
  */
 public class Bombardero extends GameObject{

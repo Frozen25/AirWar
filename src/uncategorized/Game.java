@@ -26,6 +26,8 @@ public class Game {
     ListaDoble Lista = new ListaDoble();
     ColaEnemigos Cola = new ColaEnemigos();
     ListaGenerica proyectiles =new ListaGenerica();
+    Random randomx = new Random();
+    Boss jefe1;
     
     public Game()
     {
@@ -34,7 +36,7 @@ public class Game {
         
         player = new Heroe( "nombre", 3, Display.getWidth()*1/8  /2,0);
         
-        
+        jefe1 = new Boss();        
         
         
         
@@ -55,26 +57,26 @@ public class Game {
         {
             int x = Cola.desencolar().getData();
             System.out.println(x);
-            
+            int randomx_pos =  randomx.nextInt(70)*10+100;             
             
             if (x==0)
             {
                 Jet jet1;
-                jet1 = new Jet(  Display.getWidth()/2  , Display.getHeight()); 
+                jet1 = new Jet(  randomx_pos  , Display.getHeight()); 
                 Lista.insertFirst(jet1);
                 System.out.println("jet1 ins");
             }
             if (x==1)
             {
                 Kamikaze kami1;
-                kami1 = new Kamikaze (Display.getWidth()/2  , Display.getHeight(), player.getCenterX(), player.getY()); 
+                kami1 = new Kamikaze (randomx_pos  , Display.getHeight(), player.getCenterX(), player.getY()); 
                 Lista.insertFirst(kami1);
                 System.out.println("kami1 ins");
             }
             if (x==2)
             {
                 Bombardero bomb1;
-                bomb1 = new Bombardero (Display.getWidth()/2  , Display.getHeight()); 
+                bomb1 = new Bombardero (randomx_pos  , Display.getHeight()); 
                 Lista.insertFirst(bomb1);
                 System.out.println("bomb1 ins");
             }

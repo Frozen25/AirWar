@@ -113,7 +113,8 @@ public class Game {
         	
         
         	disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY());
-        	proyectiles.Add(disparo);}
+        	proyectiles.Add(disparo);
+        	}
         
         
     }
@@ -124,10 +125,10 @@ public class Game {
         
         Lista.Updateall();
         
-        if( disparo != null)
+        if( proyectiles != null)
         {
         	proyectiles.updatelis();
-        	disparo.update();
+        	//disparo.update();
             
             
         }
@@ -149,9 +150,10 @@ public class Game {
         //Lista.peek().getData().render();
         //jet1.render();
         Lista.Renderall();
-        if( disparo != null){
+        if( proyectiles != null){
         	proyectiles.renderList();
-            disparo.render();}
+            //disparo.render();
+        	}
         
         /*if( proyectiles != null)
             proyectiles.renderList();

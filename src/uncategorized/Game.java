@@ -126,7 +126,7 @@ public class Game {
         player.update();
         
         Lista.Updateall();
-        
+        jefe1.update();
         if( proyectiles != null)
         {
         	proyectiles.updatelis();
@@ -148,7 +148,7 @@ public class Game {
 
                 
         player.render();
-
+        jefe1.render();
         //Lista.peek().getData().render();
         //jet1.render();
         Lista.Renderall();

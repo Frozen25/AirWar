@@ -42,12 +42,9 @@ public class ListaGenerica  {
     	 First.SetNext(First.getNext());
          
      }
-     public void print(){
-    	 NodoGenerico temp = First;
-    	 while(temp!= null){
-    		 System.out.println(temp.getDato()+",");
-    		 temp=temp.getNext();
-    	 }
+     public NodoGenerico print(){
+    	 return First;
+    	 
     	
     
      }

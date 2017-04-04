@@ -7,7 +7,8 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 import static uncategorized.Main.loadTexture;
-
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -19,8 +20,9 @@ public class Game {
     
     private Heroe player;
     //private ColaEnemigos Cola;
-
-     
+    
+   private int milis =0;
+     private boolean Divisible = milis % 1000 == 0;
     private Shoot disparo;
     
     ListaDoble Lista = new ListaDoble();
@@ -29,9 +31,25 @@ public class Game {
     Random randomx = new Random();
     Boss jefe1;
     
+    Timer tim=new Timer();
+	
+	TimerTask task01=new TimerTask(){
+    	public void run(){
+    		milis++;
+    		System.out.println(Divisible);
+    		
+    	}
+    };
+    public void start(){
+    	tim.scheduleAtFixedRate(task01, 1, 1);
+    }
+    
+    
     public Game()
     {
         //objects = new ArrayList<GameObject>();
+    	
+    	this.start();
         
         
         player = new Heroe( "nombre", 3, Display.getWidth()*1/8  /2,0);
@@ -111,12 +129,14 @@ public class Game {
             player.moveX(-1);
         if (Keyboard.isKeyDown(Keyboard.KEY_D) || (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)))
             player.moveX(1);
-        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
+        disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY());
+     
+        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)){ 
+        	if(Divisible){
         	
-        
-        	disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY());
-        	proyectiles.Add(disparo);
-        	}
+            	proyectiles.Add(disparo);}
+        }
+       
         
         
     }
@@ -130,16 +150,11 @@ public class Game {
         if( proyectiles != null)
         {
         	proyectiles.updatelis();
-        	//disparo.update();
+        	
             
             
         }
-        /*if( proyectiles != null)
-        {
-        	proyectiles.update();
-            
-            
-        }*/
+        
         
     }
     
@@ -154,12 +169,10 @@ public class Game {
         Lista.Renderall();
         if( proyectiles != null){
         	proyectiles.renderList();
-            //disparo.render();
-        	}
+           
+        	  }
         
-        /*if( proyectiles != null)
-            proyectiles.renderList();
-        /*
+       /*
         for (GameObject go : objects)
             go.render();
         */

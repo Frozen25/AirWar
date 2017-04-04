@@ -22,8 +22,8 @@ import org.newdawn.slick.opengl.TextureLoader;
  */
 
 /**
- *soy jose
- *hola
+ * 
+ *
  * @author Alexis
  */
 public class Main

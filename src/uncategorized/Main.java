@@ -46,7 +46,7 @@ public class Main
     private static void initGame()
     {
         game = new Game();
-    }
+           }
     
     private static void getInput()
     {

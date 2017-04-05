@@ -22,7 +22,7 @@ public class Game {
     //private ColaEnemigos Cola;
     
    private int milis =0;
-     private boolean Divisible = milis % 1000 == 0;
+     
     private Shoot disparo;
     
     ListaDoble Lista = new ListaDoble();
@@ -35,15 +35,15 @@ public class Game {
 	
 	TimerTask task01=new TimerTask(){
     	public void run(){
-    		milis++;
-    		System.out.println(Divisible);
+    		milis++;    	}    };
     		
-    	}
-    };
     public void start(){
-    	tim.scheduleAtFixedRate(task01, 1, 1);
+    	tim.scheduleAtFixedRate(task01, 1000,10);
+    	
     }
-    
+    public boolean Divisible(){
+    	return (milis %2 ==1);
+    } 
     
     public Game()
     {
@@ -132,8 +132,8 @@ public class Game {
         disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY());
      
         if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)){ 
-        	if(Divisible){
         	
+        	if(milis %20 ==10){
             	proyectiles.Add(disparo);}
         }
        

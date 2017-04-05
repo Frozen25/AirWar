@@ -29,21 +29,32 @@ public class NodoDoble {
     public void setData(GameObject Enemigo){
         Data = Enemigo;
     }
+    
+    public void setNext()
+    {
+        this.next = null;
+    }
+    
     public NodoDoble getNext()
     {
         return next;
     }
+   
     public void setNext(NodoDoble nextNode)
     {
-        next = nextNode;
+        this.next = nextNode;
     }
     public NodoDoble getPrev()
     {
         return prev;
     }
-    public void setPrev(NodoDoble nextNode)
+    public void setPrev()
     {
-        prev = nextNode;
+        this.prev = null;
+    }
+    public void setPrev(NodoDoble prevNode)
+    {
+        this.prev = prevNode;
     }
     
     

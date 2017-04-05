@@ -13,11 +13,12 @@ public class ListaDoble {
     
     //private NodoDoble tail;
     private NodoDoble head;
+    private NodoDoble last;
     private int size;
     
 
     public ListaDoble(){
-        
+        this.last = null;
         this.head = null;
         this.size = 0;
     }
@@ -34,6 +35,8 @@ public class ListaDoble {
     public int getSize(){
         return size;
     }
+    
+    
     public void insertFirst(GameObject data){
         if (size != 0)
         {
@@ -47,6 +50,7 @@ public class ListaDoble {
         else
         {
             NodoDoble newNode = new NodoDoble(data);
+            last = newNode;
             head = newNode;
             size++;
         }
@@ -96,5 +100,23 @@ public class ListaDoble {
     public NodoDoble peek()
     {
         return head;
+    }
+    public void setHead(NodoDoble newhead)
+    {
+        head = newhead;
+    }
+    
+    public NodoDoble getLast()
+    {
+        return last;
+    }
+    
+    public void setLast(NodoDoble newlast)
+    {
+        last = newlast;
+    }
+    public void reducir()
+    {
+        size -= 1;
     }
 }

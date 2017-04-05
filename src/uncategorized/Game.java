@@ -147,11 +147,12 @@ public class Game {
         
         Lista.Updateall();
         jefe1.update();
-        if( proyectiles != null)
+        if( proyectiles.getSize() != 0)
         {
         	proyectiles.updatelis();
-        	
-            
+        	GameObject x = proyectiles.print().getDato();
+                //System.out.println(xx);
+                Physics.checkwithListaDoble(x, Lista);
             
         }
         

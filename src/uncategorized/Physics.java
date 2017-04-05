@@ -24,43 +24,20 @@ public class Physics {
     
   
     
-    public static ListaDoble checkwithListaDoble (GameObject go, ListaDoble lista )
+    public static boolean checkwithListaDoble (GameObject go, ListaDoble lista )
     {
         NodoDoble current = lista.getHead();
         while (current != null)
         {
             if (checkCollisions( go,  current.getData()))
             {
-                if (lista.getSize() == 1)
-                {
-                    lista.setHead(null);
-                    lista.setLast(null);
-                    lista.reducir();
-                }
-                else if (current == lista.getHead() )
-                {
-                    lista.setHead(current.getNext());
-                    current.getNext().setPrev();
-                    lista.reducir();
-                    
-                }   
-                else if (current == lista.getLast())   
-                {
-                    lista.setLast(current.getPrev());
-                    current.getPrev().setNext();
-                    lista.reducir();
-                }
-                else   
-                {
-                    current.getPrev().setNext(current.getNext());
-                    current.getNext().setPrev(current.getPrev());
-                    lista.reducir();
-                }
+                lista.delete(current);
+                return true;
             }
             
             current = current.getNext();
         }
-        return lista;
+        return false;
         
     }
     

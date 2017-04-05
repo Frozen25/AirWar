@@ -119,4 +119,33 @@ public class ListaDoble {
     {
         size -= 1;
     }
+    public void delete (NodoDoble objeto)
+    {
+        if (size ==1)
+        {
+            head = null;
+            last = null;
+            size = 0;
+        }
+        else if (objeto == head )
+        {
+            head = objeto.getNext();
+            objeto.getNext().setPrev();
+            size-=1;
+
+        }   
+        else if (objeto == last)   
+        {
+            last = objeto.getPrev();
+            objeto.getPrev().setNext();
+            size-=1;
+        }
+        else   
+        {
+            objeto.getPrev().setNext(objeto.getNext());
+            objeto.getNext().setPrev(objeto.getPrev());
+            size-=1;
+        }
+
+    }
 }

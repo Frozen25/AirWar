@@ -27,15 +27,21 @@ public class Game {
     
     ListaDoble Lista = new ListaDoble();
     ColaEnemigos Cola = new ColaEnemigos();
-    ListaGenerica proyectiles =new ListaGenerica();
+    ListaDoble proyectiles =new ListaDoble();
     Random randomx = new Random();
     Boss jefe1;
+    boolean bandera = true;
     
     Timer tim=new Timer();
 	
 	TimerTask task01=new TimerTask(){
-    	public void run(){
-    		milis++;    	}    };
+            public void run(){
+    		milis++;
+                if (milis%20 == 10)
+                        bandera = true;        
+            }    
+        };
+        
     		
     public void start(){
     	tim.scheduleAtFixedRate(task01, 1000,10);
@@ -58,7 +64,7 @@ public class Game {
         
         
         
-        int numero_enemigos = 0;
+        int numero_enemigos = 6;
         
         Random random = new Random();
         for (int i = 1; i <= numero_enemigos; i++) {
@@ -75,7 +81,7 @@ public class Game {
         {
             int x = Cola.desencolar().getData();
             System.out.println(x);
-            int randomx_pos =  randomx.nextInt(70)*10+100;             
+            int randomx_pos =  randomx.nextInt(60)*10+100;             
             
             if (x==0)
             {
@@ -132,8 +138,14 @@ public class Game {
      
         if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)){ 
         	
-        	if(milis %20 ==10){
-            	proyectiles.Add(disparo);}
+        	if( bandera )
+                {
+                    //milis
+                    
+                    proyectiles.insertFirst(disparo);
+                    bandera = false;
+                
+                }
         }
        
         
@@ -148,10 +160,16 @@ public class Game {
         jefe1.update();
         if( proyectiles.getSize() != 0)
         {
-        	proyectiles.updatelis();
-        	GameObject x = proyectiles.print().getDato();
+        	proyectiles.Updateall();
+                NodoDoble current =  proyectiles.getHead();
+        	while (current != null)
+                {
+                    if (Physics.checkwithListaDoble(current.getData(), Lista))
+                        proyectiles.delete(current);
+                    current = current.getNext();
+                }
                 //System.out.println(xx);
-                Physics.checkwithListaDoble(x, Lista);
+                
             
         }       
     }
@@ -166,7 +184,7 @@ public class Game {
         //jet1.render();
         Lista.Renderall();
         if( proyectiles != null){
-        	proyectiles.renderList();
+        	proyectiles.Renderall();
            
         	  }
         

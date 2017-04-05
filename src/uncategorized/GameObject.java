@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uncategorized;
 
 import org.newdawn.slick.opengl.Texture;
 import static uncategorized.Main.loadTexture;
 
-/**
- *
- * @author Alexis
- */
+
 public abstract class GameObject {
     
     protected float x;
@@ -21,6 +13,7 @@ public abstract class GameObject {
     protected int life;
     protected int dmg;
     abstract void update();
+    
     public void render()
     {
 

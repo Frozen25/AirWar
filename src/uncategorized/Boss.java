@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package uncategorized;
 
 import org.lwjgl.opengl.Display;
 
-/**
- *
- * @author Alexis
- */
+
 public class Boss extends GameObject {
     private static final int SIZEY = 100;
     private static final int SIZEX = SIZEY *3 ;
@@ -26,14 +19,8 @@ public class Boss extends GameObject {
         this.life = 5;
         this.dmg = 1;
         
-
-        
     }
 
-
-
-    
-    
     @Override
     public void update()
     {
@@ -53,8 +40,7 @@ public class Boss extends GameObject {
                 x += SPEED*direccion;
             }
             else
-                direccion *= -1;
-        
+                direccion *= -1;      
         
         }
              

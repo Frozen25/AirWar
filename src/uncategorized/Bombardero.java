@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uncategorized;
 
-/**
- *aaaa
- * @author Alexis
- */
+
 public class Bombardero extends GameObject{
     
 
@@ -23,10 +15,7 @@ public class Bombardero extends GameObject{
         this.y = y;
         this.sx = SIZEX;
         this.sy = SIZEY;
-        this.life = 100;
-       
-        
- 
+        this.life = 100; 
     }
 
     public int getDmg()
@@ -39,7 +28,6 @@ public class Bombardero extends GameObject{
     {
 
         y -= SPEED;
-    }
-       
+    }       
     
 }

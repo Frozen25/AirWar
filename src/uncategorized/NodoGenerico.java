@@ -8,8 +8,7 @@ public class NodoGenerico {
 	 }
 	public GameObject getDato() {
 			return tipo;
-		}
-		
+		}	
 		
 		public void setData(GameObject dato) {
 			this.tipo = dato;

@@ -118,8 +118,7 @@ public class Game {
     }
     
     public void getInput()
-    {
-        
+    {        
         if (Keyboard.isKeyDown(Keyboard.KEY_W) || (Keyboard.isKeyDown(Keyboard.KEY_UP)))
             player.moveY(1);
         if (Keyboard.isKeyDown(Keyboard.KEY_S) || (Keyboard.isKeyDown(Keyboard.KEY_DOWN)))
@@ -154,9 +153,7 @@ public class Game {
                 //System.out.println(xx);
                 Physics.checkwithListaDoble(x, Lista);
             
-        }
-        
-        
+        }       
     }
     
     public void render()

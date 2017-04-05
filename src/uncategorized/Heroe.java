@@ -1,5 +1,4 @@
 package uncategorized;
-
 import org.lwjgl.opengl.Display;
 
 
@@ -20,16 +19,12 @@ public class Heroe extends GameObject {
         this.dmg = 5;
     }
     
-    
-    
-    
     @Override
     public void update()
     {
         //if (Physics.checkCollisions(this, ball))
         //    ball.reverseX(getCenterY());
-    }
-    
+    }    
     public void moveY(float mag)
     {
         if (mag > 0)
@@ -53,12 +48,9 @@ public class Heroe extends GameObject {
             if (x>0)
             {
                 x += SPEED * mag;
-            }
-                
-        }
-                
-    }
-    
+            }                
+        }                
+    }    
 }
 
         

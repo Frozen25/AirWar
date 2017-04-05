@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uncategorized;
 
-/**
- *
- * @author Alexis
- */
+
 public class Kamikaze extends GameObject {
 
     private static final int SIZEY = 16;
@@ -27,7 +19,6 @@ public class Kamikaze extends GameObject {
         this.dmg = 0;
         this.calcx = (playerX - this.getCenterX());
         this.calcy = (playerY - this.getCenterY());
-
         
     }
     

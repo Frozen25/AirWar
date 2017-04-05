@@ -6,7 +6,7 @@ public class Heroe extends GameObject {
 
     private static final int SIZEY = 16;
     private static final int SIZEX = SIZEY * 5;
-    private static final float SPEED = 4f;
+    private static final float SPEED = 6f;
     
     
     public Heroe(String nombre,  int ammo, float x, float y) {

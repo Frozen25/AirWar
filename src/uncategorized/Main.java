@@ -56,6 +56,7 @@ public class Main
     
     private static void update()
     {
+       game.recreate();
        game.update();
     }
     
@@ -123,7 +124,7 @@ public class Main
         Keyboard.destroy();
         game.tim.cancel();
         game.task01.cancel();
-       game.tim.purge();
+        game.tim.purge();
     }
     
     private static void initDisplay()

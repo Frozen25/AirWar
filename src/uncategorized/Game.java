@@ -197,13 +197,13 @@ public class Game {
         if( proyectilesEnemigos.getSize() != 0)
         {
         	proyectilesEnemigos.Updateall();
-              /*  NodoDoble current =  proyectilesEnemigos.getHead();
-        	while (current != null)
+               NodoDoble tmp =  proyectilesEnemigos.getHead();
+        	while (tmp != null)
                 {
-                    if (Physics.checkwithListaDoble(current.getData(), player))
-                    	proyectilesEnemigos.delete(current);
-                    current = current.getNext();
-                }*/
+                    if (Physics.checkCollisions(tmp.getData(), player))
+                    	proyectilesEnemigos.delete(tmp);
+                    tmp = tmp.getNext();
+                }
                 //System.out.println(xx);
                 
             

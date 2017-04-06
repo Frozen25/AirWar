@@ -22,12 +22,13 @@ public class Game {
     //private ColaEnemigos Cola;
     
    private int milis =0;
-     
+   private int s =0;
     private Shoot disparo;
-    
+    private Shoot disparoEnemi;
     ListaDoble Lista = new ListaDoble();
     ColaEnemigos Cola = new ColaEnemigos();
     ListaDoble proyectiles =new ListaDoble();
+    ListaDoble proyectilesEnemigos =new ListaDoble();
     Random randomx = new Random();
     Boss jefe1;
     boolean bandera = true;
@@ -37,19 +38,19 @@ public class Game {
 	TimerTask task01=new TimerTask(){
             public void run(){
     		milis++;
-                if (milis%20 == 10)
+    		s=milis/1000;
+    		
+                if (milis%200 == 1)
                         bandera = true;        
             }    
         };
         
     		
     public void start(){
-    	tim.scheduleAtFixedRate(task01, 1000,10);
+    	tim.schedule(task01, 1000,1);
     	
     }
-    public boolean Divisible(){
-    	return (milis %2 ==1);
-    } 
+    
     
     public Game()
     {
@@ -64,7 +65,7 @@ public class Game {
         
         
         
-        int numero_enemigos = 6;
+        int numero_enemigos = 1;
         
         Random random = new Random();
         for (int i = 1; i <= numero_enemigos; i++) {
@@ -77,8 +78,9 @@ public class Game {
         //System.out.println(Lista.peek().getData().getClass());
         
         
-        while ( !Cola.isEmpty()  )
+        while ( !Cola.isEmpty() )
         {
+        	
             int x = Cola.desencolar().getData();
             System.out.println(x);
             int randomx_pos =  randomx.nextInt(60)*10+100;             
@@ -105,8 +107,9 @@ public class Game {
                 System.out.println("bomb1 ins");
             }
             
-            
+        	
         }
+       
         //Cola.encolar(1);
         //Cola.encolar(2);
         //System.out.println(Cola.desencolar().getData());
@@ -134,13 +137,13 @@ public class Game {
             player.moveX(-1);
         if (Keyboard.isKeyDown(Keyboard.KEY_D) || (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)))
             player.moveX(1);
-        disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY());
+        
      
         if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)){ 
         	
         	if( bandera )
                 {
-                    //milis
+              
                     
                     proyectiles.insertFirst(disparo);
                     bandera = false;
@@ -155,9 +158,24 @@ public class Game {
     {
         
         player.update();
-        
+        disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY(),"heroe");
         Lista.Updateall();
+        
+        
+        disparoEnemi = new Shoot(Lista.getHead().getData().getX()+Lista.getHead().getData().getSX()/2,Lista.getHead().getData().getY()+Lista.getHead().getData().getSY(),"enemigo");
+        proyectilesEnemigos.insertFirst(disparoEnemi);
+        
+        
         jefe1.update();
+        if (Lista!= null){
+        	NodoDoble tempdis =  Lista.getHead();
+        	while (tempdis != null){
+        		disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,tempdis.getData().getY()+tempdis.getData().getSY(),"enemigo");
+        		proyectilesEnemigos.insertFirst(disparoEnemi);
+        		tempdis =tempdis.getNext();
+        	}
+        }
+        
         if( proyectiles.getSize() != 0)
         {
         	proyectiles.Updateall();
@@ -171,7 +189,24 @@ public class Game {
                 //System.out.println(xx);
                 
             
-        }       
+        }
+        
+        if( proyectilesEnemigos.getSize() != 0)
+        {
+        	proyectilesEnemigos.Updateall();
+              /*  NodoDoble current =  proyectilesEnemigos.getHead();
+        	while (current != null)
+                {
+                    if (Physics.checkwithListaDoble(current.getData(), player))
+                    	proyectilesEnemigos.delete(current);
+                    current = current.getNext();
+                }*/
+                //System.out.println(xx);
+                
+            
+        }
+        
+        
     }
     
     public void render()
@@ -185,6 +220,11 @@ public class Game {
         Lista.Renderall();
         if( proyectiles != null){
         	proyectiles.Renderall();
+           
+        	  }
+        
+        if( proyectilesEnemigos != null){
+        	proyectilesEnemigos.Renderall();
            
         	  }
         

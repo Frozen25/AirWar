@@ -32,7 +32,7 @@ public class Game {
     Random randomx = new Random();
     Boss jefe1;
     boolean bandera = true;
-    
+    boolean disparos = true;
     Timer tim=new Timer();
 	
 	TimerTask task01=new TimerTask(){
@@ -40,9 +40,12 @@ public class Game {
     		milis++;
     		s=milis/1000;
     		
-                if (milis%200 == 1)
-                        bandera = true;        
-            }    
+                if (milis%200 == 1){
+                        bandera = true; }
+                
+            } 
+            
+            
         };
         
     		
@@ -109,7 +112,7 @@ public class Game {
             
         	
         }
-       
+        
         //Cola.encolar(1);
         //Cola.encolar(2);
         //System.out.println(Cola.desencolar().getData());
@@ -161,20 +164,22 @@ public class Game {
         disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY(),"heroe");
         Lista.Updateall();
         
-        
-      
+        if (Lista!= null){
+        	NodoDoble tempdis =  Lista.getHead();
+        	if(milis%50==1){
+        	while (tempdis != null){
+        		disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,tempdis.getData().getY()-tempdis.getData().getSY(),"enemigo");
+        		proyectilesEnemigos.insertFirst(disparoEnemi);
+        		tempdis =tempdis.getNext();
+        		
+        	}
+        	}
+        }
+  
         
         
         jefe1.update();
-        if (Lista!= null){
-        	NodoDoble tempdis =  Lista.getHead();
-        	while (tempdis != null){
-        		
-        		disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,tempdis.getData().getY()+tempdis.getData().getSY(),"enemigo");
-        		proyectilesEnemigos.insertFirst(disparoEnemi);
-        		tempdis =tempdis.getNext();
-        	}
-        }
+        
         
         if( proyectiles.getSize() != 0)
         {

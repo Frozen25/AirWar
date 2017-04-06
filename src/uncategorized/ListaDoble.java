@@ -5,6 +5,8 @@
  */
 package uncategorized;
 
+import org.lwjgl.opengl.Display;
+
 /**
  *
  * @author Alexis
@@ -93,6 +95,11 @@ public class ListaDoble {
         while (Current!= null)
         {
             Current.getData().update();
+            if ((Current.getData().getY() < 0)|| (Current.getData().getY() > (Display.getHeight() + 10) ))
+            {
+                delete(Current);
+            }
+            
             Current = Current.getNext();
         }
         
@@ -119,32 +126,37 @@ public class ListaDoble {
     {
         size -= 1;
     }
+    
     public void delete (NodoDoble objeto)
     {
-        if (size ==1)
+        objeto.getData().addLife(-1);
+        if (objeto.getData().getLife() <= 0)
         {
-            head = null;
-            last = null;
-            size = 0;
-        }
-        else if (objeto == head )
-        {
-            head = objeto.getNext();
-            objeto.getNext().setPrev();
-            size-=1;
+            if (size ==1)
+            {
+                head = null;
+                last = null;
+                size = 0;
+            }
+            else if (objeto == head )
+            {
+                head = objeto.getNext();
+                objeto.getNext().setPrev();
+                size-=1;
 
-        }   
-        else if (objeto == last)   
-        {
-            last = objeto.getPrev();
-            objeto.getPrev().setNext();
-            size-=1;
-        }
-        else   
-        {
-            objeto.getPrev().setNext(objeto.getNext());
-            objeto.getNext().setPrev(objeto.getPrev());
-            size-=1;
+            }   
+            else if (objeto == last)   
+            {
+                last = objeto.getPrev();
+                objeto.getPrev().setNext();
+                size-=1;
+            }
+            else   
+            {
+                objeto.getPrev().setNext(objeto.getNext());
+                objeto.getNext().setPrev(objeto.getPrev());
+                size-=1;
+            }
         }
 
     }

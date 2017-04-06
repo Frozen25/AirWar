@@ -16,7 +16,7 @@ public class Boss extends GameObject {
         this.y = Display.getHeight() - SIZEY;
         this.sx = SIZEX;
         this.sy = SIZEY;
-        this.life = 5;
+        this.life = 10;
         this.dmg = 1;
         
     }

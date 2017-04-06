@@ -79,34 +79,9 @@ public class Game {
         //System.out.println(Lista.peek().getData().getClass());
         
         
-        while ( !Cola.isEmpty() )
-        {
-        	
-            int x = Cola.desencolar().getData();
-            System.out.println(x);
-            int randomx_pos =  randomx.nextInt(60)*10+100;             
-            
-            if (x==0)
-            {
-                Jet jet1;
-                jet1 = new Jet(  randomx_pos  , Display.getHeight()); 
-                Lista.insertFirst(jet1);
-                System.out.println("jet1 ins");
-            }
-            if (x==1)
-            {
-                Kamikaze kami1;
-                kami1 = new Kamikaze (randomx_pos  , Display.getHeight(), player.getCenterX(), player.getY()); 
-                Lista.insertFirst(kami1);
-                System.out.println("kami1 ins");
-            }
-            if (x==2)
-            {
-                Bombardero bomb1;
-                bomb1 = new Bombardero (randomx_pos  , Display.getHeight()); 
-                Lista.insertFirst(bomb1);
-                System.out.println("bomb1 ins");
-            }
+
+        	this.recreate();
+          
             
         	
         }
@@ -121,11 +96,47 @@ public class Game {
         
         
 
+    public void recreate()
+    {
+        if ((Lista.getSize() < 4) && (milis % 10 == 1))
+            {
+                System.out.println(Lista.getSize());
+                if (!Cola.isEmpty() )
+                {
+                    int x = Cola.desencolar().getData();
+                    //System.out.println(x);
+                    int randomx_pos =  randomx.nextInt(60)*10+100;             
 
+                    if (x==0)
+                    {
+                        Jet jet1;
+                        jet1 = new Jet(  randomx_pos  , Display.getHeight()); 
+                        Lista.insertFirst(jet1);
+                        //System.out.println("jet1 ins");
+                    }
+                    else if (x==1)
+                    {
+                        Kamikaze kami1;
+                        kami1 = new Kamikaze (randomx_pos  , Display.getHeight(), player.getCenterX(), player.getY()); 
+                        Lista.insertFirst(kami1);
+                        //System.out.println("kami1 ins");
+                    }
+                    else if (x==2)
+                    {
+                        Bombardero bomb1;
+                        bomb1 = new Bombardero (randomx_pos  , Display.getHeight()); 
+                        Lista.insertFirst(bomb1);
+                        //System.out.println("bomb1 ins");
+                    }
+                }
+
+            }
+    
+    }
 
  
         
-    }
+
     
     public void getInput()
     {        
@@ -155,6 +166,7 @@ public class Game {
         
         
     }
+    
     public void update()
     {
         

@@ -41,6 +41,7 @@ public class Main
         
         gameLoop();
         cleanUp();
+       
     }
     
     private static void initGame()
@@ -120,6 +121,9 @@ public class Main
     {
         Display.destroy();
         Keyboard.destroy();
+        game.tim.cancel();
+        game.task01.cancel();
+       game.tim.purge();
     }
     
     private static void initDisplay()

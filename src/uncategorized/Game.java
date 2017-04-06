@@ -22,7 +22,7 @@ public class Game {
     //private ColaEnemigos Cola;
     
    private int milis =0;
-   private int s =0;
+
     private Shoot disparo;
     private Shoot disparoEnemi;
     ListaDoble Lista = new ListaDoble();
@@ -37,9 +37,7 @@ public class Game {
 	
 	TimerTask task01=new TimerTask(){
             public void run(){
-    		milis++;
-    		s=milis/1000;
-    		
+    		milis++;    		
                 if (milis%200 == 1){
                         bandera = true; }
                 

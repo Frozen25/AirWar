@@ -65,7 +65,7 @@ public class Game {
         
         
         
-        int numero_enemigos = 1;
+        int numero_enemigos = 6;
         
         Random random = new Random();
         for (int i = 1; i <= numero_enemigos; i++) {
@@ -162,14 +162,14 @@ public class Game {
         Lista.Updateall();
         
         
-        disparoEnemi = new Shoot(Lista.getHead().getData().getX()+Lista.getHead().getData().getSX()/2,Lista.getHead().getData().getY()+Lista.getHead().getData().getSY(),"enemigo");
-        proyectilesEnemigos.insertFirst(disparoEnemi);
+      
         
         
         jefe1.update();
         if (Lista!= null){
         	NodoDoble tempdis =  Lista.getHead();
         	while (tempdis != null){
+        		
         		disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,tempdis.getData().getY()+tempdis.getData().getSY(),"enemigo");
         		proyectilesEnemigos.insertFirst(disparoEnemi);
         		tempdis =tempdis.getNext();

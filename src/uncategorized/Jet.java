@@ -12,7 +12,7 @@ public class Jet extends GameObject{
         this.y = y;
         this.sx = SIZEX;
         this.sy = SIZEY;
-        this.life = 5;
+        this.life = 1;
         this.dmg = 1;
         
 

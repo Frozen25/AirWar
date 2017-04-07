@@ -100,7 +100,7 @@ public class Game {
     {
         if ((Lista.getSize() < 4) && (milis % 10 == 1))
             {
-                System.out.println(Lista.getSize());
+                //System.out.println(Lista.getSize());
                 if (!Cola.isEmpty() )
                 {
                     int x = Cola.desencolar().getData();
@@ -113,6 +113,7 @@ public class Game {
                         jet1 = new Jet(  randomx_pos  , Display.getHeight()); 
                         Lista.insertFirst(jet1);
                         //System.out.println("jet1 ins");
+                        //System.out.println( jet1 instanceof uncategorized.Jet );
                     }
                     else if (x==1)
                     {
@@ -156,7 +157,7 @@ public class Game {
         	if( bandera )
                 {
               
-                    
+                    disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY(),"heroe", player.getDmg());
                     proyectiles.insertFirst(disparo);
                     bandera = false;
                 
@@ -171,18 +172,49 @@ public class Game {
     {
         
         player.update();
-        disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY(),"heroe");
-        Lista.Updateall();
+        
+        
+        
+        if (Lista.getSize() != 0)
+        {
+            Lista.Updateall();
+            /*
+            NodoDoble current =  Lista.getHead();
+        	while (current != null)
+                {
+                    if (Physics.checkwithListaDoble(player, Lista))
+                        Lista.delete(current);
+                    current = current.getNext();
+                }
+                */
+        }
         
         if (Lista!= null){
         	NodoDoble tempdis =  Lista.getHead();
         	if(milis%50==1){
-        	while (tempdis != null){
-        		disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,tempdis.getData().getY()-tempdis.getData().getSY(),"enemigo");
-        		proyectilesEnemigos.insertFirst(disparoEnemi);
-        		tempdis =tempdis.getNext();
-        		
-        	}
+                    while (tempdis != null)
+                    {
+
+                        if (tempdis.getData() instanceof uncategorized.Jet )
+                        {
+                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,
+                                                        tempdis.getData().getY()-tempdis.getData().getSY(),
+                                                            "enemigo",tempdis.getData().getDmg());
+                            proyectilesEnemigos.insertFirst(disparoEnemi);
+                        }
+                        else if (tempdis.getData() instanceof uncategorized.Bombardero )
+                        {
+                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,
+                                                        tempdis.getData().getY()-tempdis.getData().getSY(),
+                                                            "enemigo",tempdis.getData().getDmg());
+                            proyectilesEnemigos.insertFirst(disparoEnemi);
+                        }
+                        
+                        
+                        tempdis =tempdis.getNext();
+
+
+                    }
         	}
         }
   
@@ -209,7 +241,7 @@ public class Game {
         if( proyectilesEnemigos.getSize() != 0)
         {
         	proyectilesEnemigos.Updateall();
-               NodoDoble tmp =  proyectilesEnemigos.getHead();
+                NodoDoble tmp =  proyectilesEnemigos.getHead();
         	while (tmp != null)
                 {
                     if (Physics.checkCollisions(tmp.getData(), player))

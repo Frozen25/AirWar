@@ -4,8 +4,8 @@ import org.lwjgl.opengl.Display;
 
 public class Heroe extends GameObject {
 
-    private static final int SIZEY = 16;
-    private static final int SIZEX = SIZEY * 5;
+    private static final int SIZEY = 20;
+    private static final int SIZEX = SIZEY * 2;
     private static final float SPEED = 6f;
     
     
@@ -16,7 +16,7 @@ public class Heroe extends GameObject {
         this.sx = SIZEX;
         this.sy = SIZEY;
         this.life = 10;
-        this.dmg = 5;
+        this.dmg = 1;
     }
     
     @Override

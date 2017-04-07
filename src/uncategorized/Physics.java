@@ -31,8 +31,14 @@ public class Physics {
         {
             if (checkCollisions( go,  current.getData()))
             {
-                lista.delete(current);
-                return true;
+                current.getData().addLife(-1 * go.getDmg());
+                if (current.getData().getLife() <= 0)
+                {
+                    lista.delete(current);
+                    return true;
+                }
+                else
+                    return true;
             }
             
             current = current.getNext();

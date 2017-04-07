@@ -2,18 +2,20 @@ package uncategorized;
 
 public class Shoot extends GameObject
 {
-    public static final int SIZEX = 5;
-    public static final int SIZEY = 20;
-    public static final float SPEED = 4f;
-    public String type;
+    private static final int SIZEX = 5;
+    private static final int SIZEY = 20;
+    private static final float SPEED = 4f;
+    private String type;
     
-    public Shoot (float x , float y, String type)
+    public Shoot (float x , float y, String type, int dmg)
     {
         this.x = x;
         this.y = y;
         this.sx = SIZEX;
         this.sy = SIZEY;
         this.type=type;
+        this.life =1;
+        this.dmg = dmg;
     }
     
     

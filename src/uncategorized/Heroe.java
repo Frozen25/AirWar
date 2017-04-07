@@ -8,6 +8,7 @@ public class Heroe extends GameObject {
     private static final int SIZEX = SIZEY * 2;
     private static final float SPEED = 6f;
     private static int hearts = 3;
+    private static int nivel = 1;
     
     public Heroe(String nombre,  int ammo, float x, float y) {
             
@@ -27,6 +28,13 @@ public class Heroe extends GameObject {
     {
         return hearts;
     }
+    public void nextlevel()
+    {
+        nivel +=1;
+        System.out.println("nextlvl");
+    }
+    
+    
     
     @Override
     public void update()

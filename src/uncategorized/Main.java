@@ -30,6 +30,7 @@ public class Main
 {
     private static Game game;
     private static Object gl;
+    private static int level;
     public static void main (String[] args)
     
     {
@@ -46,8 +47,8 @@ public class Main
     
     private static void initGame()
     {
-        game = new Game();
-           }
+        game = new Game(1);
+    }
     
     private static void getInput()
     {
@@ -100,11 +101,16 @@ public class Main
         getInput();  
         update();
         render();
-
+        
         }
     }
     
-       
+    public static void changelevel()
+    {
+        level += 1;
+        game = new Game(level);
+        
+    }
             
     
     private static void initGL()

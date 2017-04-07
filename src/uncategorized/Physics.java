@@ -34,6 +34,10 @@ public class Physics {
                 current.getData().addLife(-1 * go.getDmg());
                 if (current.getData().getLife() <= 0)
                 {
+                    if (current.getData() instanceof Boss)
+                    {
+                        Main.changelevel();
+                    }
                     lista.delete(current);
                     return true;
                 }

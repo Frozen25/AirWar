@@ -18,7 +18,7 @@ public class Game {
     
     //private ArrayList<GameObject> objects;
     
-    private Heroe player;
+    public static Heroe player = new Heroe( "nombre", 3, Display.getWidth()*1/2,0);
     //private ColaEnemigos Cola;
     
    private int milis =0;
@@ -30,7 +30,9 @@ public class Game {
     ListaDoble proyectiles =new ListaDoble();
     ListaDoble proyectilesEnemigos =new ListaDoble();
     Random randomx = new Random();
-    Boss jefe1;
+    private int level;
+    ListaDoble L_Torres;
+    
     boolean bandera = true;
     boolean disparos = true;
     Timer tim=new Timer();
@@ -53,17 +55,17 @@ public class Game {
     }
     
     
-    public Game()
+    public Game(int numeronivel)
     {
-        //objects = new ArrayList<GameObject>();
-    	
+        
+    	level = numeronivel;
     	this.start();
         
         
-        player = new Heroe( "nombre", 3, Display.getWidth()*1/8  /2,0);
         
-        jefe1 = new Boss();        
         
+      
+
         
         
         int numero_enemigos = 6;
@@ -73,27 +75,41 @@ public class Game {
             int value =  random.nextInt(3);
             Cola.encolar(value);
         }
-        Cola.encolar(0);
-        //jet1 = new Jet(  Display.getWidth()/2  , Display.getHeight()); 
-        //Lista.insertFirst(jet1);
-        //System.out.println(Lista.peek().getData().getClass());
+        Cola.encolar(3);
         
+        /*
+        int numero_torres = 7;
+        for (int i = 1;i <= 7;i++)
+        {
+            int randomx_pos =  randomx.nextInt(60)*10+100; 
+            int randomy_pos =  randomx.nextInt(500);
+            System.out.println(randomx_pos);
+            System.out.println(randomy_pos);
+            System.out.println(i);
+            if (i%4 == 3)
+            {
+                Torre t1;
+                t1 = new Torre(randomx_pos ,randomy_pos,2);
+                L_Torres.insertFirst(t1);
+            }
+            else
+            {
+                Torre t1;
+                t1 = new Torre(randomx_pos ,randomy_pos,1);
+                L_Torres.insertFirst(t1);
+                
+            }
+            
+        
+        }*/
         
 
-        	this.recreate();
           
             
-        	
+        //End of public Game	
         }
         
-        //Cola.encolar(1);
-        //Cola.encolar(2);
-        //System.out.println(Cola.desencolar().getData());
-        //System.out.println(Cola.desencolar().getData());
-        
-        
-        //System.out.println(Lista.TakeFirst().getData().getClass().toString());
-        
+
         
 
     public void recreate()
@@ -105,7 +121,7 @@ public class Game {
                 {
                     int x = Cola.desencolar().getData();
                     //System.out.println(x);
-                    int randomx_pos =  randomx.nextInt(60)*10+100;             
+                    int randomx_pos =  randomx.nextInt(600)+100;             
 
                     if (x==0)
                     {
@@ -127,6 +143,13 @@ public class Game {
                         Bombardero bomb1;
                         bomb1 = new Bombardero (randomx_pos  , Display.getHeight()); 
                         Lista.insertFirst(bomb1);
+                        //System.out.println("bomb1 ins");
+                    }
+                    else if (x==3)
+                    {
+                        Boss jefe1;
+                        jefe1 = new Boss (); 
+                        Lista.insertFirst(jefe1);
                         //System.out.println("bomb1 ins");
                     }
                 }
@@ -172,9 +195,19 @@ public class Game {
     {
         
         player.update();
+
         if (player.getLife() <= 0)
         {
-            System.out.println("dead");
+            if (!(player.getheart() <= 0))
+            {
+                System.out.println("dead");
+                player.addLife(50);
+                player.addLife(-1);
+            }
+            else
+            {
+                System.out.println("defeat");
+            }
         }
         
         if (Lista.getSize() != 0)
@@ -222,7 +255,7 @@ public class Game {
   
         
         
-        jefe1.update();
+
         
         
         if( proyectiles.getSize() != 0)
@@ -265,9 +298,9 @@ public class Game {
     public void render()
     {
 
-                
+
         player.render();
-        jefe1.render();
+
         //Lista.peek().getData().render();
         //jet1.render();
         Lista.Renderall();

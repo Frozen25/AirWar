@@ -25,10 +25,17 @@ public class Kamikaze extends GameObject {
     @Override
     public void update()
     {
+        
         x += (calcx *SPEED);
         y += (calcy *SPEED);
     }
     
+    @Override
+    public void render()
+    {
+    
+        Draw.rect(x, y, sx, sy, (float) ( Math.toDegrees(Math.atan(calcy/calcx))));
+    }
 
 
     

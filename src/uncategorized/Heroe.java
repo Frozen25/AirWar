@@ -15,7 +15,7 @@ public class Heroe extends GameObject {
         this.y = y;
         this.sx = SIZEX;
         this.sy = SIZEY;
-        this.life = 50;
+        this.life = 10;
         this.dmg = 5;
     }
     

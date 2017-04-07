@@ -172,8 +172,10 @@ public class Game {
     {
         
         player.update();
-        
-        
+        if (player.getLife() <= 0)
+        {
+            System.out.println("dead");
+        }
         
         if (Lista.getSize() != 0)
         {
@@ -245,7 +247,11 @@ public class Game {
         	while (tmp != null)
                 {
                     if (Physics.checkCollisions(tmp.getData(), player))
-                    	proyectilesEnemigos.delete(tmp);
+                    {
+                        player.addLife(-1*tmp.getData().getDmg());
+                        proyectilesEnemigos.delete(tmp);
+                    
+                    }
                     tmp = tmp.getNext();
                 }
                 //System.out.println(xx);

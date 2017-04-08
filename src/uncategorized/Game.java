@@ -239,12 +239,29 @@ public class Game {
                         }
                         else if (tempdis.getData() instanceof uncategorized.Bombardero )
                         {
-                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,
+                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/3+2,
                                                         tempdis.getData().getY()-tempdis.getData().getSY(),
                                                             "enemigo",tempdis.getData().getDmg());
                             proyectilesEnemigos.insertFirst(disparoEnemi);
                         }
-                        
+                        else if (tempdis.getData() instanceof uncategorized.Boss )
+                        {
+                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()+2,
+                                                        tempdis.getData().getY()-tempdis.getData().getSY()/3,
+                                                            "enemigo",tempdis.getData().getDmg());
+                            proyectilesEnemigos.insertFirst(disparoEnemi);
+                            
+                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/10,
+                                    tempdis.getData().getY()-tempdis.getData().getSY()/3,
+                                        "enemigo",tempdis.getData().getDmg());
+                            
+                            proyectilesEnemigos.insertFirst(disparoEnemi);
+                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2,
+                                    tempdis.getData().getY()-tempdis.getData().getSY()/3,
+                                        "enemigo",tempdis.getData().getDmg());
+                            
+                            proyectilesEnemigos.insertFirst(disparoEnemi);
+                        }
                         
                         tempdis =tempdis.getNext();
 

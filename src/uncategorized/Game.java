@@ -69,7 +69,7 @@ public class Game {
 
         
         
-        int numero_enemigos = 6;
+        int numero_enemigos = 8* level;
         
         Random random = new Random();
         for (int i = 1; i <= numero_enemigos; i++) {
@@ -156,7 +156,7 @@ public class Game {
                     else if (x==3)
                     {
                         Boss jefe1;
-                        jefe1 = new Boss (); 
+                        jefe1 = new Boss (level); 
                         Lista.insertFirst(jefe1);
                         //System.out.println("bomb1 ins");
                     }
@@ -166,7 +166,7 @@ public class Game {
     
     }
 
- 
+    
         
 
     

@@ -11,12 +11,12 @@ public class Boss extends GameObject {
     private int direccion = 1;
 
     
-    public Boss( ) {
+    public Boss( int nivel ) {
         this.x = Display.getWidth()/2 + SIZEX/2;
         this.y = Display.getHeight() - SIZEY;
         this.sx = SIZEX;
         this.sy = SIZEY;
-        this.life = 30;
+        this.life = 30 * nivel;
         this.dmg = 1;
         
     }

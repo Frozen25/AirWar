@@ -78,8 +78,8 @@ public class Game {
         }
         Cola.encolar(3);
         
-        int randomx_pos =  randomx.nextInt(60)*10+100; 
-        int randomy_pos =  randomx.nextInt(200)+200;
+        //int randomx_pos =  randomx.nextInt(60)*10+100; 
+        //int randomy_pos =  randomx.nextInt(200)+200;
   
         //t1 = new Torre(randomx_pos ,randomy_pos,2);
         //s1 = new ShootAimed(Display.getWidth(), Display.getHeight(), 

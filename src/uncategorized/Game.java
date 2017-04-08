@@ -21,10 +21,10 @@ public class Game {
     public static Heroe player = new Heroe( "nombre", 3, Display.getWidth()*1/2,0);
     //private ColaEnemigos Cola;
     
-   private int milis =0;
+    private int milis =0;
 
-    private Shoot disparo;
-    private Shoot disparoEnemi;
+    //private Shoot disparo;
+    //private Shoot disparoEnemi;
     ListaDoble Lista = new ListaDoble();
     ColaEnemigos Cola = new ColaEnemigos();
     ListaDoble proyectiles =new ListaDoble();
@@ -32,10 +32,11 @@ public class Game {
     Random randomx = new Random();
     private int level;
     ListaDoble L_Torres;
-    
-    boolean bandera = true;
-    boolean disparos = true;
+    private boolean bandera = true;
+    private boolean disparos = true;
     Timer tim=new Timer();
+    //Torre t1;
+    //ShootAimed s1;
 	
 	TimerTask task01=new TimerTask(){
             public void run(){
@@ -76,6 +77,13 @@ public class Game {
             Cola.encolar(value);
         }
         Cola.encolar(3);
+        
+        int randomx_pos =  randomx.nextInt(60)*10+100; 
+        int randomy_pos =  randomx.nextInt(200)+200;
+  
+        //t1 = new Torre(randomx_pos ,randomy_pos,2);
+        //s1 = new ShootAimed(Display.getWidth(), Display.getHeight(), 
+        //                    player.getCenterX(), player.getCenterY(),1 );
         
         /*
         int numero_torres = 7;
@@ -179,8 +187,8 @@ public class Game {
         	
         	if( bandera )
                 {
-              
-                    disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY(),"heroe", player.getDmg());
+                    //Shoot disparo;
+                    Shoot disparo = new Shoot(player.getX()+player.getSX()/2,player.getY()+player.getSY(),"heroe", player.getDmg());
                     proyectiles.insertFirst(disparo);
                     bandera = false;
                 
@@ -195,7 +203,9 @@ public class Game {
     {
         
         player.update();
-
+//        t1.update();
+       // s1.update();
+        
         if (player.getLife() <= 0)
         {
             if (!(player.getheart() <= 0))
@@ -232,31 +242,33 @@ public class Game {
 
                         if (tempdis.getData() instanceof uncategorized.Jet )
                         {
-                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,
+                            //Shoot disparoEnemi;
+                            Shoot disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,
                                                         tempdis.getData().getY()-tempdis.getData().getSY(),
                                                             "enemigo",tempdis.getData().getDmg());
                             proyectilesEnemigos.insertFirst(disparoEnemi);
                         }
                         else if (tempdis.getData() instanceof uncategorized.Bombardero )
                         {
-                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/3+2,
+                            //Shoot disparoEnemi;
+                            Shoot disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2+1,
                                                         tempdis.getData().getY()-tempdis.getData().getSY(),
                                                             "enemigo",tempdis.getData().getDmg());
                             proyectilesEnemigos.insertFirst(disparoEnemi);
                         }
-                        else if (tempdis.getData() instanceof uncategorized.Boss )
+                         else if (tempdis.getData() instanceof uncategorized.Boss )
                         {
-                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()+2,
+                        	 Shoot disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()+2,
                                                         tempdis.getData().getY()-tempdis.getData().getSY()/3,
                                                             "enemigo",tempdis.getData().getDmg());
                             proyectilesEnemigos.insertFirst(disparoEnemi);
                             
-                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/10,
+                             disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/10,
                                     tempdis.getData().getY()-tempdis.getData().getSY()/3,
                                         "enemigo",tempdis.getData().getDmg());
                             
                             proyectilesEnemigos.insertFirst(disparoEnemi);
-                            disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2,
+                             disparoEnemi = new Shoot(tempdis.getData().getX()+tempdis.getData().getSX()/2,
                                     tempdis.getData().getY()-tempdis.getData().getSY()/3,
                                         "enemigo",tempdis.getData().getDmg());
                             
@@ -314,8 +326,8 @@ public class Game {
     
     public void render()
     {
-
-
+  //      s1.render();
+ //       t1.render();
         player.render();
 
         //Lista.peek().getData().render();
